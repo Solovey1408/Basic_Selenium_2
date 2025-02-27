@@ -35,7 +35,7 @@ time.sleep(3)
 file_name = "LambdaTest.pdf"
 file_path = path_download + file_name
 
-assert os.access(file_path, os.F_OK) == True, 'File not in directory'
+assert os.access(file_path, os.F_OK) is True, 'File not in directory'
 print('File in directory')
 
 files = glob.glob(os.path.join(path_download, "*.*"))
@@ -44,9 +44,5 @@ for file in files:
     if a > 10:
         print('File is not empty')
     else:
+        os.remove(file)
         print('File Empty')
-
-files = glob.glob(os.path.join(path_download, "*.*"))
-
-# for file in files:
-#     os.remove(file)
